@@ -12,7 +12,7 @@ const ContactInfo: React.FC = () => {
     },
     {
       title: "Email Address",
-      value: "support@Reservatinofflights.com",
+      value: "support@reservatinofflights.com",
       icon: <FaEnvelope className="w-5 h-5" />,
       link: "mailto:support@Reservatinofflights.com", // email clickable
     },
@@ -31,8 +31,8 @@ const ContactInfo: React.FC = () => {
   ];
 
   return (
-    <section className="py-6 sm:py-16 px-4 sm:px-10 bg-white">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="py-6 sm:py-16 flex justify-center w-full px-4 sm:px-10 bg-white">
+      <div className="max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {infoData.map((item, index) => (
           <a 
             key={index} 

@@ -52,7 +52,7 @@ export default function Footer() {
                   href="mailto:Info@wellglobalinc.com" 
                   className="hover:underline text-gray-300"
                 >
-                  Info@wellglobalinc.com
+                  info@reservationflights.com
                 </a>
               </li>
               
@@ -82,7 +82,7 @@ export default function Footer() {
         {/* Copyright */}
         
         <div className="mt-10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm border-t border-gray-400 pt-6">
-          <p>©Well Global INC 2025. All rights reserved.</p>
+          <p>©Reservation of flights. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <p className="hover:underline">
               <Link to='/termsofuse'>Terms of use</Link>

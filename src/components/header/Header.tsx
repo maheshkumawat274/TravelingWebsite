@@ -87,7 +87,7 @@ const Header = () => {
             {/* Top Bar with Logo + Close */}
             <div className="flex justify-between items-center px-6 py-4 border-b border-gray-300">
               <Link to="/">
-                <h1 className="text-2xl font-semibold text-gray-100">Reservation of flights</h1>
+                <h1 className="text-2xl font-semibold text-[#1A3E72]">Reservation of flights</h1>
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
@@ -107,8 +107,8 @@ const Header = () => {
                   className={({ isActive }) =>
                     `flex items-center justify-between w-full border-b border-gray-300 py-3 text-md font-medium ${
                       isActive
-                        ? "text-[#C5A15C] border-[#C5A15C]"
-                        : "text-gray-800 hover:text-[#C5A15C] hover:border-[#C5A15C]"
+                        ? "text-[#1A3E72] border-[#1A3E72]"
+                        : "text-gray-800 hover:text-[#1A3E72] hover:border-[#1A3E72]"
                     }`
                   }
                 >
@@ -120,7 +120,7 @@ const Header = () => {
 
             {/* Footer */}
             <div className="border-t border-gray-300 text-center py-4 text-sm text-gray-500 mt-auto">
-              © Well Global INC 2025. All rights reserved.
+              ©Reservation of flights. All rights reserved.
             </div>
           </motion.div>
         )}

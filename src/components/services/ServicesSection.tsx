@@ -53,7 +53,7 @@ const PremiumServices: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section className="bg-white py-16 px-4 md:px-12 relative">
+    <section className="bg-white py-6 sm:py-16 px-4 md:px-12 relative overflow-x-scroll  ">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0a1a44] mb-8">
         Premium Services
       </h2>
@@ -61,7 +61,7 @@ const PremiumServices: React.FC = () => {
       {/* Custom Navigation Buttons */}
       <div className="absolute top-1/2 left-0.5 sm:left-4 z-10">
         <button
-          className="bg-[#0a1a44] cursor-pointer text-white p-3 rounded-full shadow-md hover:bg-[#142c6a] transition"
+          className="bg-indigo-100 cursor-pointer text-[#142c6a] hover:text-white p-3 rounded-full shadow-md hover:bg-[#142c6a] transition"
           onClick={() => swiperRef.current?.slidePrev()}
         >
           <FaArrowLeft size={12} />
@@ -70,7 +70,7 @@ const PremiumServices: React.FC = () => {
 
       <div className="absolute top-1/2 right-0.5 sm:right-4 z-10">
         <button
-          className="bg-[#0a1a44] cursor-pointer text-white p-3 rounded-full shadow-md hover:bg-[#142c6a] transition"
+          className="bg-indigo-100 cursor-pointer text-[#142c6a] hover:text-white p-3 rounded-full shadow-md hover:bg-[#142c6a] transition"
           onClick={() => swiperRef.current?.slideNext()}
         >
           <FaArrowRight size={12} />
