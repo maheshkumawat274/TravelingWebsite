@@ -1,0 +1,40 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@import "tailwindcss";
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-cards";
+@import "swiper/css/effect-coverflow";
+
+
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
+
+.swiper-pagination {
+  position: static !important; /* flow ke andar aajayegi */
+  margin-top: 1rem; /* cards aur dots ke beech gap */
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-gray-300 w-3 h-3 rounded-full opacity-100 transition-all duration-300 mx-1;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-[#0a1a44] w-4 h-4;
+}
+
