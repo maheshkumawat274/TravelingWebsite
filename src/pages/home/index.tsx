@@ -1,6 +1,7 @@
 import AboutSection from "../../components/about/AboutSection"
 import AdvantagesSection from "../../components/home/AdvantageSection"
 import Locations from "../../components/home/Destination"
+import HomeTopImgs from "../../components/home/HomeTopImgs"
 import NumbersSection from "../../components/home/NumbersSection"
 import HomeSearchSection from "../../components/home/SeachSection"
 import TestimonialCarousel from "../../components/home/Testimonial"
@@ -14,6 +15,7 @@ const HomePage = () => {
       <div>
         <HomeSearchSection/>
       </div>
+      <HomeTopImgs/>
       <AboutSection/>
       <PremiumServices/>
         <AdvantagesSection/>

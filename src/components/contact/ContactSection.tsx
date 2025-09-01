@@ -8,7 +8,7 @@ const ContactInfo: React.FC = () => {
       title: "Phone Number",
       value: "987689768968",
       icon: <FaPhoneAlt className="w-5 h-5" />,
-      link: "tel:987689768968",  // phone clickable
+      link: "tel:987689768968", // phone clickable
     },
     {
       title: "Email Address",
@@ -31,14 +31,22 @@ const ContactInfo: React.FC = () => {
   ];
 
   return (
-    <section className="py-6 sm:py-16 flex justify-center w-full px-4 sm:px-10 bg-white">
+    <section className="py-6 sm:py-16 flex flex-col items-center w-full px-4 sm:px-10 bg-white">
+      {/* Section Title */}
+      <div className="text-center mb-10">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          Get in Touch With Us
+        </h2>
+        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Have a question about your booking, flight details, or travel assistance? 
+          Our support team is available 24/7 to help you. Call us now and let’s connect!
+        </p>
+      </div>
+
+      {/* Info Cards */}
       <div className="max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {infoData.map((item, index) => (
-          <a 
-            key={index} 
-            href={item.link} 
-            className="block"
-          >
+          <a key={index} href={item.link} className="block">
             <ContactCard 
               title={item.title} 
               value={item.value} 

@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ServicesPage from "./pages/services";
 import ScrollTop from "./components/ScrollTop";
+import BookingProcessPage from "./pages/bookingform";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
        <Route path="/aboutus" element={<AboutPage />} />
        <Route path="/services" element={<ServicesPage/>}/>
        <Route path="/contactus" element={<ContactPage />} />
+       <Route path="/search-flight" element={<BookingProcessPage/>}/>
       </Routes>
       <Footer/>
     </Router>
