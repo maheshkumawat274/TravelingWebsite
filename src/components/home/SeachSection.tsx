@@ -1,101 +1,225 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import airports from "../../data/airports";
 
 type TripType = "round" | "oneway" | "class";
 
+interface Airport {
+  code: string;
+  name: string;
+  city: string;
+}
+
 const HomeSearchSection: React.FC = () => {
   const [tripType, setTripType] = useState<TripType>("round");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [fromSuggestions, setFromSuggestions] = useState<Airport[]>([]);
+  const [toSuggestions, setToSuggestions] = useState<Airport[]>([]);
+  const [showFromSuggestions, setShowFromSuggestions] = useState(false);
+  const [showToSuggestions, setShowToSuggestions] = useState(false);
+  const [selectedFrom, setSelectedFrom] = useState<Airport | null>(null);
+  const [selectedTo, setSelectedTo] = useState<Airport | null>(null);
+
+  const fromRef = useRef<HTMLDivElement>(null);
+  const toRef = useRef<HTMLDivElement>(null);
+
+  // Close suggestions when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (fromRef.current && !fromRef.current.contains(event.target as Node)) {
+        setShowFromSuggestions(false);
+      }
+      if (toRef.current && !toRef.current.contains(event.target as Node)) {
+        setShowToSuggestions(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleFromChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFrom(value);
+    
+    if (value.length > 1) {
+      const filtered = airports.filter(
+        (airport) =>
+          airport.city.toLowerCase().includes(value.toLowerCase()) ||
+          airport.name.toLowerCase().includes(value.toLowerCase()) ||
+          airport.code.toLowerCase().includes(value.toLowerCase())
+      );
+      setFromSuggestions(filtered.slice(0, 5));
+      setShowFromSuggestions(true);
+    } else {
+      setFromSuggestions([]);
+      setShowFromSuggestions(false);
+    }
+  };
+
+  const handleToChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setTo(value);
+    
+    if (value.length > 1) {
+      const filtered = airports.filter(
+        (airport) =>
+          airport.city.toLowerCase().includes(value.toLowerCase()) ||
+          airport.name.toLowerCase().includes(value.toLowerCase()) ||
+          airport.code.toLowerCase().includes(value.toLowerCase())
+      );
+      setToSuggestions(filtered.slice(0, 5));
+      setShowToSuggestions(true);
+    } else {
+      setToSuggestions([]);
+      setShowToSuggestions(false);
+    }
+  };
+
+  const selectFrom = (airport: Airport) => {
+    setFrom(`${airport.city} - ${airport.name} (${airport.code})`);
+    setSelectedFrom(airport);
+    setShowFromSuggestions(false);
+  };
+
+  const selectTo = (airport: Airport) => {
+    setTo(`${airport.city} - ${airport.name} (${airport.code})`);
+    setSelectedTo(airport);
+    setShowToSuggestions(false);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Backend integration point
-    // Send form data via API call
-    console.log("Form submitted");
+    
+    // Use the selected airport objects if available, otherwise fall back to input values
+    const fromValue = selectedFrom ? selectedFrom.code : from;
+    const toValue = selectedTo ? selectedTo.code : to;
+    
+    console.log("Form submitted", { from: fromValue, to: toValue, tripType });
   };
 
   return (
-    <div className="relative w-full bg-cover bg-center h-[80vh] px-4 flex items-center justify-center"
-         style={{ backgroundImage: "url('/imgs/home.png')" }}>
+    <div
+      className="relative w-full bg-cover bg-center h-[80vh] px-4 flex items-center justify-center"
+      style={{ backgroundImage: "url('/imgs/home.png')" }}
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-40" />
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-3xl">
-        <h1 className="text-xl sm:text-4xl font-bold mb-2">Find & Book Your Perfect Trip</h1>
+        <h1 className="text-xl sm:text-4xl font-bold mb-2">
+          Find & Book Your Perfect Trip
+        </h1>
         <p className="text-sm sm:text-lg mb-6">
           Discover amazing deals on flights, hotels, and vacation packages around the world
         </p>
 
         {/* Tabs */}
         <div className="flex justify-center space-x-3 mb-6">
-          <button
-            onClick={() => setTripType("round")}
-            className={`px-4 py-2 rounded-t-md text-sm sm:text-lg cursor-pointer font-medium ${
-              tripType === "round" ? "bg-white text-gray-800" : "bg-gray-700"
-            }`}
-          >
-            Round Trip
-          </button>
-          <button
-            onClick={() => setTripType("oneway")}
-            className={`px-4 py-2 rounded-t-md text-sm sm:text-lg cursor-pointer font-medium ${
-              tripType === "oneway" ? "bg-white text-gray-800" : "bg-gray-700"
-            }`}
-          >
-            One Way
-          </button>
-          <button
-            onClick={() => setTripType("class")}
-            className={`px-4 py-2 rounded-t-md text-sm sm:text-lg cursor-pointer font-medium ${
-              tripType === "class" ? "bg-white text-gray-800" : "bg-gray-700"
-            }`}
-          >
-            Booking Class
-          </button>
+          {["round", "oneway", "class"].map((type) => (
+            <button
+              key={type}
+              onClick={() => setTripType(type as TripType)}
+              className={`px-4 py-2 rounded-t-md text-sm sm:text-lg cursor-pointer font-medium ${
+                tripType === type ? "bg-white text-gray-800" : "bg-gray-700"
+              }`}
+            >
+              {type === "round" && "Round Trip"}
+              {type === "oneway" && "One Way"}
+              {type === "class" && "Booking Class"}
+            </button>
+          ))}
         </div>
 
         {/* Form Section */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white opacity-70 rounded-xl shadow-md p-2 sm:p-6 flex flex-wrap gap-4 items-center justify-center text-gray-800"
+          className="bg-white opacity-90 rounded-xl shadow-md p-2 sm:p-6 flex flex-wrap gap-4 items-center justify-center text-gray-800"
         >
-          {/* Common fields */}
-          <div className="flex flex-col">
+          {/* From */}
+          <div className="flex flex-col relative" ref={fromRef}>
             <label className="text-sm mb-1">From</label>
             <input
               type="text"
-              placeholder="From City or Airport"
-              className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40"
+              value={from}
+              onChange={handleFromChange}
+              placeholder="Enter city or airport"
+              className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48"
               required
             />
+            {showFromSuggestions && fromSuggestions.length > 0 && (
+              <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-20 mt-1 max-h-60 overflow-y-auto">
+                {fromSuggestions.map((airport) => (
+                  <div
+                    key={airport.code}
+                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-left text-sm"
+                    onClick={() => selectFrom(airport)}
+                  >
+                    <div className="font-medium">{airport.city} - {airport.name}</div>
+                    <div className="text-xs text-gray-500">{airport.code}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="flex flex-col">
+
+          {/* To */}
+          <div className="flex flex-col relative" ref={toRef}>
             <label className="text-sm mb-1">To</label>
             <input
               type="text"
-              placeholder="To City or Airport"
-              className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40"
+              value={to}
+              onChange={handleToChange}
+              placeholder="Enter city or airport"
+              className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48"
               required
             />
+            {showToSuggestions && toSuggestions.length > 0 && (
+              <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-20 mt-1 max-h-60 overflow-y-auto">
+                {toSuggestions.map((airport) => (
+                  <div
+                    key={airport.code}
+                    className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-left text-sm"
+                    onClick={() => selectTo(airport)}
+                  >
+                    <div className="font-medium">{airport.city} - {airport.name}</div>
+                    <div className="text-xs text-gray-500">{airport.code}</div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Conditional fields */}
           {(tripType === "round" || tripType === "oneway") && (
             <div className="flex flex-col">
               <label className="text-sm mb-1">Departure</label>
-              <input type="date" className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40" required />
+              <input
+                type="date"
+                className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48"
+                required
+              />
             </div>
           )}
 
           {tripType === "round" && (
             <div className="flex flex-col">
               <label className="text-sm mb-1">Return</label>
-              <input type="date" className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40" required />
+              <input
+                type="date"
+                className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48"
+                required
+              />
             </div>
           )}
 
+          {/* Passengers */}
           <div className="flex flex-col">
             <label className="text-sm mb-1">Passengers</label>
-            <select className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40">
+            <select className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48">
               <option>1 Adult</option>
               <option>2 Adults</option>
               <option>3 Adults</option>
@@ -103,9 +227,10 @@ const HomeSearchSection: React.FC = () => {
             </select>
           </div>
 
+          {/* Class */}
           <div className="flex flex-col">
             <label className="text-sm mb-1">Class</label>
-            <select className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40">
+            <select className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48">
               <option>Economy</option>
               <option>Business</option>
               <option>First Class</option>
@@ -119,7 +244,7 @@ const HomeSearchSection: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter Airline"
-                className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-30 sm:w-40"
+                className="border text-[12px] sm:text-md rounded-md px-3 py-2 w-32 sm:w-48"
               />
             </div>
           )}
@@ -127,7 +252,7 @@ const HomeSearchSection: React.FC = () => {
           {/* Submit */}
           <button
             type="submit"
-            className="bg-[#1A3E72] hover:bg-blue-900 text-white px-6 py-2 text-[12px] sm:text-md rounded-md font-medi w-30usm:m mt-4 cursor-pointer"
+            className="bg-[#1A3E72] hover:bg-blue-900 text-white px-6 py-2 text-[12px] sm:text-md rounded-md font-medium mt-4 cursor-pointer"
           >
             Search Flights
           </button>

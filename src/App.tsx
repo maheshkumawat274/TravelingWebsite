@@ -5,10 +5,12 @@ import ContactPage from "./pages/contact";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import ServicesPage from "./pages/services";
+import ScrollTop from "./components/ScrollTop";
 
 function App() {
   return (
     <Router>
+      <ScrollTop/>
       <Header/>
       <Routes>
        <Route path="/" element={<HomePage />} />
