@@ -31,13 +31,12 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-semibold text-indigo-100 text-lg mb-4">Services</h3>
+            <h3 className="font-semibold text-indigo-100 text-lg mb-4">Airlines</h3>
             <ul className="space-y-2 text-gray-300">
-              <li className="hover:underline"><Link to='/services'>Premium Comfort</Link></li>
-              <li className="hover:underline"><Link to='/services'>Student Travel Deals</Link></li>
-              <li className="hover:underline"><Link to='/services'>Top Airlines</Link></li>
-              <li className="hover:underline"><Link to='/services'>First Class Deals</Link></li>
-              <li className="hover:underline"><Link to='/services'>Student Travel Deals</Link></li>
+              <li className="hover:underline"><Link to='/airlines-f9'>Frontier Airlines</Link></li>
+              <li className="hover:underline"><Link to='/airlines-sa'>Southwest Airlines</Link></li>
+              <li className="hover:underline"><Link to='/airlines-da'>Delta Airlines</Link></li>
+              <li className="hover:underline"><Link to='/airlines-al'>Alaska Airlines</Link></li>
             </ul>
           </div>
 

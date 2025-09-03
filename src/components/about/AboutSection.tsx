@@ -93,7 +93,7 @@ export default function AboutSection() {
           <p className="text-[#1A3E72] font-semibold italic">About Us</p>
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Discover Our Story</h2>
           <p className="text-gray-600 mb-6">
-            Reservation of flights is an online travel agency delivering top-notch service worldwide. Our experienced professionals ensure smooth journeys with trusted support and travel solutions. We offer competitive fares, personalized itineraries, 24/7 customer assistance, and hassle-free booking options. Wherever you go, we’re here to make your trip easy, comfortable, and memorable.
+            Reservation of Flights is a global online travel platform committed to providing exceptional travel experiences. Our skilled team ensures seamless journeys by offering reliable guidance and tailored travel solutions. We provide competitive pricing, customized itineraries, round-the-clock customer support, and effortless booking options. No matter your destination, we’re dedicated to making your trip smooth, enjoyable, and unforgettable.
           </p>
 
         </div>

@@ -444,7 +444,7 @@ const HomeSearchSection: React.FC = () => {
           Find & Book Your Perfect Trip
         </h1>
         <p className="text-sm sm:text-lg mb-6">
-          Discover amazing deals on flights, hotels, and vacation packages around the world
+          Explore incredible offers on flights, hotels, and all-inclusive vacation packages worldwide.
         </p>
 
         {/* Tabs */}

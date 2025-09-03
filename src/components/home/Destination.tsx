@@ -64,10 +64,10 @@ const Locations: React.FC = () => {
       {/* Heading */}
       <p className="text-[#1A3E72] font-semibold text-lg">Top Destinations</p>
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2">
-        Find your Perfect Destinations
+        Discover Your Ideal Destinations
       </h2>
       <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
-        Explore your dream domestic and international destinations at the lowest airfare today.
+        Uncover your dream domestic and international spots with unbeatable airfare deals today.
       </p>
 
       {/* Card Container */}

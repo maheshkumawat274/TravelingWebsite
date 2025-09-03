@@ -59,35 +59,34 @@ const AdvantagesSection = () => {
           <h3 className="text-[#1A3E72] font-semibold italic">Why Choose Us</h3>
           <h2 className="text-4xl font-bold mb-6 text-gray-700">What are our Advantages</h2>
           <p className="text-gray-600">
-            There are many variations of passages of Lorem Ipsum available,
-            but the majority have suffered alteration.
+            There are numerous versions of placeholder text, yet most have undergone modifications.
           </p>
 
            <ul className="space-y-6">
             <li className="flex items-start gap-3">
               <FaUserTie className="text-[#1A3E72] text-xl mt-1" />
               <div>
-                <span className="text-[#1A3E72] font-bold">Expert Guidance</span>
+                <span className="text-[#1A3E72] font-bold">Professional Assistance</span>
                 <p className="text-gray-600 text-sm">
-                  Local guides share culture, history, and hidden attractions often missed.
+                  Knowledgeable local guides reveal cultural insights, historical stories, and hidden gems often overlooked by solo travelers.
                 </p>
               </div>
             </li>
             <li className="flex items-start gap-3">
               <FaMoneyBillWave className="text-[#1A3E72] text-xl mt-1" />
               <div>
-                <span className="text-[#1A3E72] font-bold">Cost-Effectiveness</span>
+                <span className="text-[#1A3E72] font-bold">Affordable Travel</span>
                 <p className="text-gray-600 text-sm">
-                  Group tours get better deals, saving money on travel essentials.
+                  Joining group tours unlocks special discounts, helping you save on accommodations, transportation, and other travel necessities.
                 </p>
               </div>
             </li>
             <li className="flex items-start gap-3">
               <FaShieldAlt className="text-[#1A3E72] text-xl mt-1" />
               <div>
-                <span className="text-[#1A3E72] font-bold">Safety and Security</span>
+                <span className="text-[#1A3E72] font-bold">Enhanced Safety</span>
                 <p className="text-gray-600 text-sm">
-                  Group travel lowers risks in unfamiliar or remote destinations.
+                  Traveling in groups reduces potential risks when exploring unfamiliar or remote locations, ensuring peace of mind throughout your journey.
                 </p>
               </div>
             </li>

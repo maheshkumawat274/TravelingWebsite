@@ -10,22 +10,22 @@ type Guide = {
 const guides: Guide[] = [
   {
     city: "Paris",
-    title: "Paris Guide",
-    description: "Discover the best of Paris with our travel guide.",
+    title: "Paris Travel Guide",
+    description: "Uncover the charm and top attractions of Paris with our expert travel insights.",
     image:
       "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80",
   },
   {
     city: "Moscow",
-    title: "Moscow Guide",
-    description: "Discover the best of Moscow with our travel guide.",
+    title: "Moscow Travel Guide",
+    description: "Experience the highlights and hidden gems of Moscow through our comprehensive guide.",
     image:
       "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80",
   },
   {
     city: "London",
-    title: "London Guide",
-    description: "Explore the best of London with our travel guide.",
+    title: "London Travel Guide",
+    description: "Navigate London like a local and explore its must-see sights with our detailed guide.",
     image:
       "https://images.unsplash.com/photo-1488747279002-c8523379faaa?auto=format&fit=crop&w=900&q=80",
   },

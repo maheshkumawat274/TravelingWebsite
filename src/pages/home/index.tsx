@@ -18,11 +18,11 @@ const HomePage = () => {
       <HomeTopImgs/>
       <AboutSection/>
       <PremiumServices/>
-        <AdvantagesSection/>
-        <Locations/>
-        <TravelGuide/>
-        <NumbersSection/>
-        <TestimonialCarousel/>
+      <AdvantagesSection/>
+      <Locations/>
+      <TravelGuide/>
+      <NumbersSection/>
+      <TestimonialCarousel/>
         
      </div>
     </>

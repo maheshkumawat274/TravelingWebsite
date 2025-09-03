@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaHeadset } from "react-icons/fa";
-import ContactCard from "./ContactCard";
+import Card from "../card/Card";
 
 const ContactInfo: React.FC = () => {
   const infoData = [
@@ -47,7 +47,7 @@ const ContactInfo: React.FC = () => {
       <div className="max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {infoData.map((item, index) => (
           <a key={index} href={item.link} className="block">
-            <ContactCard 
+            <Card
               title={item.title} 
               value={item.value} 
               icon={item.icon} 
