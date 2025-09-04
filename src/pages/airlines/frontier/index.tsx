@@ -2,6 +2,7 @@ import AirlinesServices from "../../../components/airlines/AirlineServices"
 import ContactAirlines from "../../../components/airlines/ContactAirlines"
 import FlightDeals from "../../../components/airlines/frontier/Flightdeals"
 import FrontierBookingGuide from "../../../components/airlines/frontier/FrontierBookingGuide"
+import FrontierConclusion from "../../../components/airlines/frontier/FrontierConclusion"
 import FrontierTop from "../../../components/airlines/frontier/FrontierTop"
 
 
@@ -14,6 +15,7 @@ const FrontierPage = () => {
       <AirlinesServices/>
       <ContactAirlines/>
       <FrontierBookingGuide/>
+      <FrontierConclusion/>
      </div>
     </>
   )

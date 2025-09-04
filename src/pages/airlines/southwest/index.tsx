@@ -1,6 +1,8 @@
 
 import AirlinesServices from '../../../components/airlines/AirlineServices'
 import ContactAirlines from '../../../components/airlines/ContactAirlines'
+import SouthwestFlightsGuide from '../../../components/airlines/southwest/SouthwestBookingGuide'
+import SouthwestConclusion from '../../../components/airlines/southwest/SouthwestConclusion'
 import SouthwestDeals from '../../../components/airlines/southwest/SouthwestDeals'
 import SouthwestTop from '../../../components/airlines/southwest/SouthwestTop'
 
@@ -12,6 +14,8 @@ const SouthwestPage = () => {
       <SouthwestDeals/>
       <AirlinesServices/>
       <ContactAirlines/>
+      <SouthwestFlightsGuide/>
+      <SouthwestConclusion/>
      </div>
     </>
   )
